@@ -45,8 +45,8 @@ async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname;
   console.log("Path:", path);
-  if (path.startsWith("/check/")) {
-    const screenName = path.substring(7);
+  if (!path.startsWith("/v1/") && !path.startsWith("/status")) {
+    const screenName = path.substring(1);
     // const returnjson = {
     //     timestamp: Date.now(),
     //     profile: {
@@ -142,7 +142,7 @@ async function handler(req: Request): Promise<Response> {
         break;
       }
     }
-    console.log(returnjson)
+    console.log(returnjson);
     return new Response(JSON.stringify(returnjson), {
       headers: new Headers({
         "content-type": "application/json;",
