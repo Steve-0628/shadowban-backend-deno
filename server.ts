@@ -103,6 +103,7 @@ async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify(returnjson), {
         headers: new Headers({
           "content-type": "application/json;",
+          "Access-Control-Allow-Origin": "*",
         }),
       });
     }
@@ -112,6 +113,7 @@ async function handler(req: Request): Promise<Response> {
       return new Response(JSON.stringify(returnjson), {
         headers: new Headers({
           "content-type": "application/json;",
+          "Access-Control-Allow-Origin": "*",
         }),
       });
     }
@@ -146,6 +148,7 @@ async function handler(req: Request): Promise<Response> {
     return new Response(JSON.stringify(returnjson), {
       headers: new Headers({
         "content-type": "application/json;",
+        "Access-Control-Allow-Origin": "*",
       }),
     });
   }
@@ -374,6 +377,7 @@ function errorMessage(code: number): Response {
     status: code,
     headers: new Headers({
       "content-type": "application/json; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
     }),
   });
   console.log(body);
@@ -385,6 +389,7 @@ function successResponse(body: string): Response {
     status: Status.OK,
     headers: new Headers({
       "content-type": "application/json; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
     }),
   });
   console.log(body);
